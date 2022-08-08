@@ -1,4 +1,4 @@
-import { boardPlaceSize, STATUS } from './const';
+import { boardPlaceSize, STATUS } from '../const/const';
 import Row from  './Row';
 import { Gomoku } from './Gomoku';
 

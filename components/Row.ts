@@ -1,7 +1,7 @@
 import { Place } from './Place'
 import PlaceMap from './PlaceMap'
 import { Gomoku } from './Gomoku'
-import { boardPlaceSize } from './const'
+import { boardPlaceSize } from '../const/const'
 
 export default class Row {
   rowNumber: number

@@ -1,6 +1,6 @@
-import { boardPlaceSize } from './const';
+import { boardPlaceSize } from '../const/const';
 import PlaceMap from './PlaceMap';
-import { STATUS } from './const'
+import { STATUS } from '../const/const'
 import { Place } from './Place';
 
 export class Gomoku {

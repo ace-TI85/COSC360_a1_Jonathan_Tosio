@@ -1,4 +1,4 @@
-import { Gomoku } from './Gomoku'
+import { Gomoku } from './components/Gomoku'
 
 console.log("hello from app.ts");
 const gomoku = new Gomoku()
