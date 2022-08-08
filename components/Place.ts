@@ -46,9 +46,9 @@ export class Place {
     //check each row
     for (let i = 0; i < placeMap.rows.length; i++){
       for (let j = 2; j < placeMap.rows[i].places.length - 2; j++){
-        if (placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
-          placeMap.rows[i].places[j - 2].status.toLowerCase() == inputStatus &&
+        if (placeMap.rows[i].places[j - 2].status.toLowerCase() == inputStatus &&
           placeMap.rows[i].places[j - 1].status.toLowerCase() == inputStatus &&
+          placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
           placeMap.rows[i].places[j + 1].status.toLowerCase() == inputStatus &&
           placeMap.rows[i].places[j + 2].status.toLowerCase() == inputStatus) {
             return true
@@ -58,9 +58,9 @@ export class Place {
     // check each column
     for (let i = 2; i < placeMap.rows.length - 2; i++){
       for (let j = 0; j < placeMap.rows[i].places.length; j++){
-        if (placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
-        placeMap.rows[i - 2].places[j].status.toLowerCase() == inputStatus &&
+        if (placeMap.rows[i - 2].places[j].status.toLowerCase() == inputStatus &&
         placeMap.rows[i - 1].places[j].status.toLowerCase() == inputStatus &&
+        placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 1].places[j].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 2].places[j].status.toLowerCase() == inputStatus) {
           return true
@@ -70,9 +70,9 @@ export class Place {
     // check both diagnonals
     for (let i = 2; i < placeMap.rows.length - 2; i++){
       for (let j = 2; j < placeMap.rows[i].places.length - 2; j++){
-        if (placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
-        placeMap.rows[i - 2].places[j - 2].status.toLowerCase() == inputStatus &&
+        if (placeMap.rows[i - 2].places[j - 2].status.toLowerCase() == inputStatus &&
         placeMap.rows[i - 1].places[j - 1].status.toLowerCase() == inputStatus &&
+        placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 1].places[j + 1].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 2].places[j + 2].status.toLowerCase() == inputStatus) {
           return true
@@ -82,9 +82,9 @@ export class Place {
   
     for (let i = 2; i < placeMap.rows.length - 2; i++){
       for (let j = 2; j < placeMap.rows[i].places.length - 2; j++){
-        if (placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
-        placeMap.rows[i - 2].places[j + 2].status.toLowerCase() == inputStatus &&
+        if (placeMap.rows[i - 2].places[j + 2].status.toLowerCase() == inputStatus &&
         placeMap.rows[i - 1].places[j + 1].status.toLowerCase() == inputStatus &&
+        placeMap.rows[i].places[j].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 1].places[j - 1].status.toLowerCase() == inputStatus &&
         placeMap.rows[i + 2].places[j - 2].status.toLowerCase() == inputStatus) {
           return true
