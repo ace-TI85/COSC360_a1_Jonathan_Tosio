@@ -2,13 +2,12 @@ import { boardPlaceSize, STATUS } from './const';
 import Row from  './Row';
 import { Gomoku } from './Gomoku';
 
-var drawConditionCounter: number = boardPlaceSize * boardPlaceSize;
-
 export default class PlaceMap {
   rows: Row[];
   selectedPlaces: number[] = [];
   element: HTMLDivElement;
   gomoku: Gomoku;
+  drawConditionCounter: number;
 
   constructor( rowNumber: number, placeNumberOnRow: number, gomoku: Gomoku) {
     this.rows = Array.from({ length: rowNumber }).map((_, index) => {
@@ -22,7 +21,8 @@ export default class PlaceMap {
     this.element.addEventListener('click', () => {
       this.updateSelectedPlaces()
     })
-    this.gomoku = gomoku
+    this.gomoku = gomoku;
+    this.drawConditionCounter = boardPlaceSize * boardPlaceSize;
   }
 
   hideRandomPlace(){
@@ -36,12 +36,16 @@ export default class PlaceMap {
 
     tempPlace.element.style.visibility = "hidden"
     tempPlace.status = STATUS.AVAILABLE
-    drawConditionCounter -= 1
+    this.drawConditionCounter -= 1
+  }
+  
+  resetDrawCounter() {
+    this.drawConditionCounter = boardPlaceSize * boardPlaceSize;
   }
 
   updateSelectedPlaces() {
     this.selectedPlaces = this.rows.map((row) => row.selectedPlacesId).flat()
-    if (this.selectedPlaces.length == drawConditionCounter) {
+    if (this.selectedPlaces.length == this.drawConditionCounter) {
       this.gomoku.updateTurnOrderText("Draw");
     }
   }

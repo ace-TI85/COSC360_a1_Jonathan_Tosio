@@ -1,4 +1,4 @@
-export const boardPlaceSize: number = 7;
+export const boardPlaceSize: number = 5;
 
 export const enum STATUS {
   AVAILABLE = 'AVAILABLE',

@@ -39,6 +39,7 @@ export class Gomoku {
       this.placeMap.selectedPlaces.splice(0)
       this.turnOrderText.innerText = "Current player: Black"
       this.turnToggle = false
+      this.placeMap.resetDrawCounter();
     });
 
     this.buttonHiddenToggle.addEventListener('click', () => {
