@@ -3,14 +3,6 @@ import PlaceMap from './PlaceMap';
 import { STATUS } from './const'
 import { Place } from './Place';
 
-// class Board {
-//   var hiddenPlaceToggle: Boolean = false;
-
-//   constructor () {
-
-//   }
-// }
-
 export class Gomoku {
   turnToggle: boolean;
   turnOrderText: HTMLDivElement;
@@ -32,7 +24,7 @@ export class Gomoku {
     //Changing the turn order for the player
     this.turnOrderText = document.createElement('div');
     this.turnOrderText.classList.add('turnOrder')
-    this.turnOrderText.innerText = "Current player: black";
+    this.turnOrderText.innerText = "Current player: Black";
     this.turnOrderText.setAttribute('id', 'turn-order');
     this.turnOrderText.setAttribute('margin-left', 'auto');
     this.turnOrderText.setAttribute('margin-right', 'auto');
@@ -40,12 +32,12 @@ export class Gomoku {
     this.turnOrderText.setAttribute('float', 'right');
     
     this.hiddenPlaceToggle = false;    
-    this.turnToggle = false
+    this.turnToggle = true;
 
     this.resetButton.addEventListener('click', () => {
       this.placeMap.rows.map((row) => row.places.map((place) => place.resetStatus()))
       this.placeMap.selectedPlaces.splice(0)
-      this.turnOrderText.innerText = "Current player: black"
+      this.turnOrderText.innerText = "Current player: Black"
       this.turnToggle = false
     });
 
@@ -55,7 +47,7 @@ export class Gomoku {
         this.buttonHiddenToggle.style.color = '#32a852'
       }
       else{ 
-        this.buttonHiddenToggle.style.color = '#FFFFFF'
+        this.buttonHiddenToggle.style.color = '#fff'
       }
     })
   }
@@ -71,14 +63,14 @@ export class Gomoku {
       place.element.classList.remove(place.status.toLowerCase())
   
       
-      if (!this.turnToggle){
+      if (this.turnToggle){
         place.status = place.status === STATUS.AVAILABLE || STATUS.WHITE ? STATUS.BLACK : STATUS.AVAILABLE;
-        place.element.style.setProperty('background-color', '#000000');
-        this.updateTurnOrderText("Current player: black");
+        place.element.style.setProperty('background-color', '#000');
+        this.updateTurnOrderText("Current player: White");
       } else {
         place.status = place.status === STATUS.AVAILABLE || STATUS.BLACK ? STATUS.WHITE : STATUS.AVAILABLE;
-        place.element.style.setProperty('background-color', '#ffffff');
-        this.updateTurnOrderText("Current player: white");
+        place.element.style.setProperty('background-color', '#fff');
+        this.updateTurnOrderText("Current player: Black");
       }
 
       this.turnToggle = !this.turnToggle
