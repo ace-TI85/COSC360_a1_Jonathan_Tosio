@@ -1,6 +1,6 @@
 Following commands to run project:
 
-  brew install yarn
+  brew install yarn (if MacOS)
 
   yarn 
 
